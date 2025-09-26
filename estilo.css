@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d1b2a; /* Noite padrão */
+  transition: background-color 0.8s ease;
+  font-family: Arial, sans-serif;
+}
+
+/* Oculta os inputs */
+input[type="radio"] {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #1b263b; /* Lua */
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transition: background-color 0.8s ease, box-shadow 0.8s ease;
+}
+
+/* Botões */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background 0.3s;
+}
+
+.on {
+  background: #ffdd00;
+  color: #333;
+}
+
+.on:hover {
+  background: #ffcc00;
+}
+
+.off {
+  background: #444;
+  color: white;
+}
+
+.off:hover {
+  background: #222;
+}
+
+/* Quando marcado "Ligar" (Dia) */
+#on:checked ~ .circle {
+  background-color: #ffeb3b; /* Sol */
+  box-shadow: 0 0 40px rgba(255, 223, 0, 0.9);
+}
+
+#on:checked ~ body,
+#on:checked ~ .circle {
+  background-color: #ffeb3b;
+}
+
+#on:checked ~ .container,
+#on:checked ~ body {
+  background-color: #87ceeb; /* Céu claro */
+}
+
+/* Quando marcado "Desligar" (Noite) */
+#off:checked ~ .container,
+#off:checked ~ body {
+  background-color: #0d1b2a; /* Céu escuro */
+}
